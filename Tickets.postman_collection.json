@@ -1,0 +1,268 @@
+{
+  "info": {
+    "_postman_id": "e8d41e03-17dd-4fc8-b2e7-fd22cfcf2210",
+    "name": "Tickets",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11226491"
+  },
+  "item": [
+    {
+      "name": "Create Ticket",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"customerName\": \"Ankush Bhardwaj\",\n    \"movieTitle\": \"Movie 3\",\n    \"ticketPrice\": 900\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8001/tickets/add-ticket",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8001",
+          "path": ["tickets", "add-ticket"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Ticket",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8001/tickets/ticket/2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8001",
+          "path": ["tickets", "ticket", "2"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Ticket",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"customerName\": \"Ankush Bhardwaj 2\",\n    \"movieTitle\": \"Movie 1 - 2\",\n    \"ticketPrice\": 200,\n    \"createdAt\": \"2023-01-01T00:00:00.000Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8001/tickets/ticket/2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8001",
+          "path": ["tickets", "ticket", "2"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Ticket",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8001/tickets/ticket/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8001",
+          "path": ["tickets", "ticket", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Aggregate - Visited (JS)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/analytics/visited?method=js-algorithm",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["analytics", "visited"],
+          "query": [
+            {
+              "key": "method",
+              "value": "js-algorithm"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Aggregate - Earnings (JS)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"startDate\": \"2023-01-01T00:00:00.000Z\",\n    \"endDate\": \"2023-08-20T17:13:55.541Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/analytics/earnings?method=js-algorithm",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["analytics", "earnings"],
+          "query": [
+            {
+              "key": "method",
+              "value": "js-algorithm"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Aggregate - Visited (DB)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"startDate\": \"2023-01-01T00:00:00.000Z\",\n    \"endDate\": \"2023-08-20T17:13:55.541Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/analytics/visited?method=db-aggregation",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["analytics", "visited"],
+          "query": [
+            {
+              "key": "method",
+              "value": "db-aggregation"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Aggregate - Earnings (DB)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "authToken=ZwZfkQ3LcUh3d8HS4JBulzmO1eNCXgTv;",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"startDate\": \"2023-01-01T00:00:00.000Z\",\n    \"endDate\": \"2023-08-20T17:13:55.541Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/analytics/earnings?method=db-aggregation",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["analytics", "earnings"],
+          "query": [
+            {
+              "key": "method",
+              "value": "db-aggregation"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

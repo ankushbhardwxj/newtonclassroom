@@ -12,7 +12,7 @@ app.use("*", (req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-app.listen(8001, () => {
+app.listen(3000, () => {
   loaders(app);
-  console.log("Server running on ", 8001);
+  console.log("Server running on ", 3000);
 });
