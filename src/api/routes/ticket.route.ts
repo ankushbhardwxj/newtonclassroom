@@ -61,6 +61,7 @@ export default (router: Router) => {
     try {
       const ticketId = Number(req.params.id);
       const deleteTicketRes = await deleteTicketById(ticketId);
+      if (!deleteTicketRes) throw Error("Failed to delete ticket");
       res.status(200).json({
         success: true,
         message: "successfully deleted ticket",
