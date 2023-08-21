@@ -21,3 +21,7 @@ yarn start     # run the server
 docker build -t <image name> .
 docker run -p 3000:3000 <image name>
 ```
+
+### Hosted On Render
+
+API URL: https://newton-tickets.onrender.com
