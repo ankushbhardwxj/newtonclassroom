@@ -5,6 +5,7 @@ import {
   getVisitedAnalyticsByDBAggregation,
   getVisitedAnalyticsByJSAlgorithm,
 } from "../../services/analytics.service";
+import { logger } from "../../loaders/logger";
 
 const analyticsRouter = Router();
 export default (router: Router) => {
@@ -30,7 +31,7 @@ export default (router: Router) => {
         res.send(results);
       } else throw Error("Method not found");
     } catch (err) {
-      console.error(err);
+      logger.error(err);
       res.send(err);
     }
   });
@@ -58,7 +59,7 @@ export default (router: Router) => {
         res.send(results);
       } else throw Error("Method not found");
     } catch (err) {
-      console.error(err);
+      logger.error(err);
       res.send(err);
     }
   });

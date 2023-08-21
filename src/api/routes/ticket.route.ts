@@ -5,6 +5,7 @@ import {
   getTicketById,
   updateTicketById,
 } from "../../services/ticket.service";
+import { logger } from "../../loaders/logger";
 
 const ticketRouter = Router();
 export default (router: Router) => {
@@ -21,7 +22,7 @@ export default (router: Router) => {
         message: "Successfully created ticket",
       });
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       res.send(error);
     }
   });
@@ -35,7 +36,7 @@ export default (router: Router) => {
       const ticket = await getTicketById(ticketId);
       res.send(ticket);
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       res.send(error);
     }
   });
@@ -49,7 +50,7 @@ export default (router: Router) => {
       const ticket = await updateTicketById(ticketId, req.body);
       res.send(ticket);
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       res.send(error);
     }
   });
@@ -67,7 +68,7 @@ export default (router: Router) => {
         message: "successfully deleted ticket",
       });
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       res.send(error);
     }
   });
