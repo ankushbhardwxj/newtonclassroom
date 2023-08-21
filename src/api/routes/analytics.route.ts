@@ -17,19 +17,16 @@ export default (router: Router) => {
   analyticsRouter.get("/earnings", async (req: Request, res: Response) => {
     try {
       const method = req.query.method;
+      const { startDate, endDate, movieTitle } = req.body;
       if (method === "db-aggregation") {
         const results = await getEarningsByDBAgg(
-          req.body.startDate,
-          req.body.endDate
+          startDate,
+          endDate,
+          movieTitle
         );
-        console.log(results);
         res.send(results);
       } else if (method === "js-algorithm") {
-        const results = await getEarningsByJS(
-          req.body.startDate,
-          req.body.endDate
-        );
-        console.log(results);
+        const results = await getEarningsByJS(startDate, endDate, movieTitle);
         res.send(results);
       } else throw Error("Method not found");
     } catch (err) {
@@ -44,17 +41,19 @@ export default (router: Router) => {
   analyticsRouter.get("/visited", async (req: Request, res: Response) => {
     try {
       const method = req.query.method;
-      console.log(method);
+      const { startDate, endDate, movieTitle } = req.body;
       if (method === "db-aggregation") {
         const results = await getVisitedAnalyticsByDBAggregation(
-          req.body.startDate,
-          req.body.endDate
+          startDate,
+          endDate,
+          movieTitle
         );
         res.send(results);
       } else if (method === "js-algorithm") {
         const results = await getVisitedAnalyticsByJSAlgorithm(
-          req.body.startDate,
-          req.body.endDate
+          startDate,
+          endDate,
+          movieTitle
         );
         res.send(results);
       } else throw Error("Method not found");
